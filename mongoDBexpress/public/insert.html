@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1> Native MongoDB Test Example</h1>
+<form method='post' action='/insert'>
+	user <input type='text' size='10' name='user'>
+	<input type='submit' name='operation' value='delete' onclick='this.form.action="/delete"' > 
+	<input type='submit' name='operation' value='get'  onclick='this.form.action="/get"' > 
+	<p>
+	city <input type='text' size='10' name='city' >
+	sex <input type='radio' name='sex' value='male'>male 
+	<input type='radio' name='sex' value='female'>female
+	<p>
+	<input type='submit' name='operation' value='insert' onclick='this.form.action="/insert"' > 
+	<input type='submit' name='operation' value='update' onclick='this.form.action="/update"' > 
+	<input type='submit' name='operation' value='list'  onclick='this.form.action="/list"' > 
+	
+</form>
+</body>
+</html>
