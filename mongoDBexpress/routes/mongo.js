@@ -36,8 +36,8 @@ router.post('/update', function(req, res, next) {
 	var sex = req.body.sex;
 	var city = req.body.city;
 	db = req.db;
-	//db.collection('users').updateOne({_id:userid},{'sex':sex,'city':city},function(err,doc){
-	db.get('users').updateOne({'userid':userid},{$set:{'sex':'BUSAN'}},function(err,doc){
+	db.get('users').update({userid:userid},{'userid':userid,'sex':sex,'city':city},function(err,doc){
+	//db.get('users').update({'userid':userid},{$set:{'sex':'BUSAN'}},function(err,doc){
 	       if(err){
 	    	   console.log(err);
 	    	   res.status(500).send('update error');
