@@ -22,7 +22,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var monk = require('monk');
+var db = monk('mongodb://localhost:27017/mydb');
+
 var mongo = require('./routes/mongo.js');
+app.use(function(req,res,next){
+    req.db = db;
+    next();
+});
 app.use('/', mongo);
 app.use('/users', users);
 
