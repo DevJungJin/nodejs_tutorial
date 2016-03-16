@@ -3,7 +3,9 @@ var fs = require('fs');
 var src = '/tmp/myfile.txt';
 var des = '/tmp/myfile_async.txt';
 
-fs.readFile(src,function(err,data){
+fs.readFile(src,'utf-8',function(err,data){
+	
+	console.log(data);
 	if(err){
 		console.log("Read file error");
 	}else{
