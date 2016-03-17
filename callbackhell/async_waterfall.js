@@ -14,7 +14,7 @@ async.waterfall([
              ],
              function(err,result){
 				if(err) console.log(err);
-				console.log(result);
+				else console.log('file copy done');
 			 }
 );
 

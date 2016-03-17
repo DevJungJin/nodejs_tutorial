@@ -2,7 +2,7 @@ var async = require('async');
 var unirest = require('unirest');
 
 var start = new Date().getTime();
-async.series([
+async.parallel([
                 function(callback){
                 	unirest.get('https://api.github.com/users/bwcho75')
                 	.header('Accept', 'application/json')

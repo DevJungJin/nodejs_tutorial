@@ -2,6 +2,7 @@ var async = require('async');
 
 async.series([
               function(callback){
+            	  console.log('task1');
             	  callback(null,'resultA');
               },
               function(callback){
@@ -13,7 +14,8 @@ async.series([
              ],
              function(err,results){
 				if(err) console.log(err);
-				console.log(results)
+				else console.log(results)
                              // handle resultC
 			 }
 );
+console.log('async series');
