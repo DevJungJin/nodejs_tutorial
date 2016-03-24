@@ -47,15 +47,25 @@ router.post('/update', function(req, res, next) {
 	var userid = req.body.userid;
 	var sex = req.body.sex;
 	var city = req.body.city;
+	User.findOne({'userid':userid},function(err,user){
 
-    User.update({userid:userid},{'userid':userid,'sex':sex,'city':city},{upsert:false},function(err){
+		if(err){
+	 	   console.log(err);
+	 	   res.status(500).send('update error');
+	 	   return;
+	    }
+		user.save(function(err,silence){
 		       if(err){
 		    	   console.log(err);
 		    	   res.status(500).send('update error');
 		    	   return;
 		       }
 		       res.status(200).send("Updated");
+		       
+		   });
 	});
+	
+
 });
 router.get('/list', function(req, res, next) {
 	User.find({},function(err,docs){
