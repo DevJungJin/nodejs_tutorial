@@ -54,6 +54,8 @@ router.post('/update', function(req, res, next) {
 	 	   res.status(500).send('update error');
 	 	   return;
 	    }
+		user.sex = sex;
+		user.city = city;
 		user.save(function(err,silence){
 		       if(err){
 		    	   console.log(err);
